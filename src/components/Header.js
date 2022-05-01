@@ -39,6 +39,22 @@ const HeaderContainer = styled.div`
     width: 1130px;
 `
 
+const HeaderTop = styled.div`
+    clear:both; 
+    display:flex; 
+    justify-content: space-between;
+    align-items:center;
+    margin-right:-10px; 
+    margin-left: -10px;
+    box-sizing: border-box; 
+
+    h1{ font-size:24px; line-height:100px; }
+    ul li{ display:inline-block; }
+    ul li::after{ content:"·";  }
+    ul li:last-child::after{ content:"";  }
+    ul li a{ font-size:13px; padding:0 5px; }
+`
+
 const SitemapWrap = styled.div`
     overflow:hidden; 
     width:100%; 
@@ -50,7 +66,25 @@ const SitemapWrap = styled.div`
 `
 
 const Sitemap = styled.div`
+    display:flex;
+    padding:1.5rem 0;
     p{ float:left; width:40px; height:1px; }
+`
+
+const SitemapBox = styled.ul`
+    width:25%;
+    text-align:center;
+`
+
+const SitemapBoxTit = styled.li`
+    padding-bottom:1rem; 
+    font-size:18px; 
+    font-weight:bold; 
+    color:#00AE0C;
+`
+
+const SitemapBoxList = styled.li`
+    padding:0.25rem 0;
 `
 
 function Header(){
@@ -61,13 +95,13 @@ function Header(){
         <HeaderWrap>
             <HeaderLogo>
                 <HeaderContainer>
-                <div className="row space-between flex-center">
-                    <h1><a href="index.html">PLANTS LOVE</a></h1>
-                    <ul>
-                        <li><a href="login.html">로그인</a></li>
-                        <li><a href="">비회원주문조회</a></li>
-                    </ul>
-                </div>
+                    <HeaderTop>
+                        <h1><a href="index.html">PLANTS LOVE</a></h1>
+                        <ul>
+                            <li><a href="login.html">로그인</a></li>
+                            <li><a href="">비회원주문조회</a></li>
+                        </ul>
+                    </HeaderTop>
                 </HeaderContainer>
             </HeaderLogo>
             <HeaderNavWrap>
@@ -77,7 +111,7 @@ function Header(){
                         <input type="checkbox" name="nav-icon" id="nav-icon" />
                         <label htmlFor="nav-icon" onClick={()=> Sitemap === true ? setSitemap(false): setSitemap(true)}><span></span></label>
                     </p>
-                    <ul className="test">
+                    <ul>
                         <li><a href="store.html">스토어</a></li>
                         <li><a href="">물물교환</a></li>
                         <li><a href="">가까운꽃집찾기</a></li>
@@ -96,28 +130,28 @@ function Header(){
 function NavSite() {
     return (
         <SitemapWrap>
-            <Sitemap>
             <HeaderContainer>
-                <ul className="main-nav-con sitemap-store">
-                <li className="main-nav-tit">스토어</li>
-                <li><a href="store.html">스토어홈</a></li>
-                <li><a href="store-category.html">카테고리</a></li>
-                <li><a href="">베스트</a></li>
-                </ul>
-                <ul className="main-nav-con sitemap-change">
-                <li className="main-nav-tit">물물교환</li>
-                <li><a href="">물물교환홈</a></li>
-                </ul>
-                <ul className="main-nav-con sitemap-find">
-                <li className="main-nav-tit">가까운꽃집찾기</li>
-                <li><a href="">내주변꽃집</a></li>
-                </ul>
-                <ul className="main-nav-con sitemap-comm">
-                <li className="main-nav-tit">커뮤니티</li>
-                <li><a href="">커뮤니티홈</a></li>
-                </ul>
+                <Sitemap>
+                    <SitemapBox>
+                        <SitemapBoxTit>스토어</SitemapBoxTit>
+                        <SitemapBoxList><a href="store.html">스토어홈</a></SitemapBoxList>
+                        <SitemapBoxList><a href="store-category.html">카테고리</a></SitemapBoxList>
+                        <SitemapBoxList><a href="">베스트</a></SitemapBoxList>
+                    </SitemapBox>
+                    <SitemapBox>
+                        <SitemapBoxTit>물물교환</SitemapBoxTit>
+                        <SitemapBoxList><a href="">물물교환홈</a></SitemapBoxList>
+                    </SitemapBox>
+                    <SitemapBox>
+                        <SitemapBoxTit>가까운꽃집찾기</SitemapBoxTit>
+                        <SitemapBoxList><a href="">내주변꽃집</a></SitemapBoxList>
+                    </SitemapBox>
+                    <SitemapBox>
+                        <SitemapBoxTit>커뮤니티</SitemapBoxTit>
+                        <SitemapBoxList><a href="">커뮤니티홈</a></SitemapBoxList>
+                    </SitemapBox>
+                </Sitemap> 
             </HeaderContainer> 
-            </Sitemap> 
         </SitemapWrap> 
     );
 }
