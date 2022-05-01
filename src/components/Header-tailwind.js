@@ -1,6 +1,6 @@
 import React from "react";
 
-function Header(){
+function Headerzz(){
     return(
         <header className="header">
             <div className="container">
@@ -16,4 +16,4 @@ function Header(){
     )
 }
 
-export default Header;
+export default Headerzz;
